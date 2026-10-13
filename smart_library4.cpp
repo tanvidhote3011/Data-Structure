@@ -1,0 +1,86 @@
+include <iostream>
+using namespace std;
+
+int main()
+{
+    int book[10];
+    int n = 0;
+    int choice;
+    int searchID;
+
+    do
+    {
+        cout << "\n==== Smart Library ====";
+        cout << "\n1. Add Book";
+        cout << "\n2. Display Books";
+        cout << "\n3. Search Book";
+        cout << "\n4. Exit";
+        cout << "\nEnter Your Choice: ";
+        cin >> choice;
+
+        if (choice == 1)
+        {
+            if (n < 10)
+            {
+                cout << "Enter Book ID: ";
+                cin >> book[n];
+                n++;
+                cout << "Book Added!";
+            }
+            else
+            {
+                cout << "Library is Full!";
+            }
+        }
+        else if (choice == 2)
+        {
+            cout << "\nBooks in Library:\n";
+
+            for (int i = 0; i < n; i++)
+            {
+                cout << book[i] << endl;
+            }
+
+            if (n == 0)
+            {
+                cout << "No books available.";
+            }
+        }
+        else if (choice == 3)
+        {
+            cout << "Enter Book ID to Search: ";
+            cin >> searchID;
+
+            bool found = false;
+
+            for (int i = 0; i < n; i++)
+            {
+                if (book[i] == searchID)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found)
+            {
+                cout << "Book Found!";
+            }
+            else
+            {
+                cout << "Book Not Found!";
+            }
+        }
+        else if (choice == 4)
+        {
+            cout << "Thank You!";
+        }
+        else
+        {
+            cout << "Invalid Choice!";
+        }
+
+    } while (choice != 4);
+
+    return 0;
+}
